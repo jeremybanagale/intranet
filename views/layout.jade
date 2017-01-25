@@ -1,7 +1,20 @@
 doctype html
 html
   head
-    title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    title Big Outsource Intranet
   body
-    block content
+    .header
+      h1.page-title Big Outsource Intranet
+
+    ul.nav
+      li: a(href='/') Home
+      li: a(href='#assessment') Applicant Assessment
+      li: a(href='#about') About
+      li: a(href='#contact') Contact
+
+    .main-content
+      block content
+
+    .footer
+      p Copyright © Jigno Alfred V. Venezuela 2017.
