@@ -3,13 +3,16 @@ html
 
   head
   
-    link(rel='stylesheet', href='/stylesheets/style.css')
     title Big Outsource Intranet
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name='author', content='Jigno Alfred V. Venezuela')
+
+    block scripts
     
   body
   
     .header
-      h1.page-title Big Outsource Intranet
+      h1.page-title Big Outsource
 
       ul.nav
         li: a(href='/') Home
@@ -22,4 +25,4 @@ html
       block content
 
     .footer
-      p Copyright © Jigno Alfred V. Venezuela 2017.
+      p Copyright © Jigno Alfred V. Venezuela 2017 for Big Outsource.
