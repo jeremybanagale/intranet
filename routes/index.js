@@ -7,6 +7,18 @@ router.get('/', function(req, res){
   });
 });
 
+router.get('/exam', function(req, res){
+  res.render('exam', {
+    title: 'Applicant Assessment'
+  });
+});
+
+router.get('/intern', function(req, res){
+  res.render('intern', {
+    title: 'Intern Tools'
+  });
+});
+
 router.get('/about', function(req, res){
   res.render('about', {
     title: 'About'

@@ -1,17 +1,22 @@
 doctype html
 html
+
   head
+  
     link(rel='stylesheet', href='/stylesheets/style.css')
     title Big Outsource Intranet
+    
   body
+  
     .header
       h1.page-title Big Outsource Intranet
 
-    ul.nav
-      li: a(href='/') Home
-      li: a(href='#assessment') Applicant Assessment
-      li: a(href='#about') About
-      li: a(href='#contact') Contact
+      ul.nav
+        li: a(href='/') Home
+        li: a(href='/exam') Applicant Assessment
+        li: a(href='/intern') Intern Tools
+        li: a(href='#about') About
+        li: a(href='#contact') Contact
 
     .main-content
       block content
