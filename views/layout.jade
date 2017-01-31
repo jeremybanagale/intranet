@@ -8,9 +8,7 @@ html
 
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js')
-    
-    script(type='text/javascript', src='/javascripts/topnav.js')
-    
+        
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
@@ -26,8 +24,10 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
+            
           .small-logo-container
             a.small-logo(href='#') ↥Big Outsource
+            
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
             li.active
@@ -37,14 +37,15 @@ html
             li
               a(href='/intern') Intern Tools
             li
+              a(href='/assessment-scores') Assessment Scores
+            li
               a(href='#about') About
+              
     .container-fluid.big-logo-row
       .container
         .row
           .col-xs-12.big-logo-container
             h1.big-logo ↧Big Outsource
-
-
 
     .main-content
       block content

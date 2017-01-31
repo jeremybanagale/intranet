@@ -14,8 +14,14 @@ router.get('/exam', function(req, res){
 });
 
 router.get('/intern', function(req, res){
-  res.render('intern', {
+  res.render('intern/intern', {
     title: 'Intern Tools'
+  });
+});
+
+router.get('/assessment-scores', function(req, res){
+  res.render('intern/assessment-scores', {
+    title: 'Assessment Scores'
   });
 });
 
