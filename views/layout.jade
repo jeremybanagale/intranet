@@ -9,23 +9,52 @@ html
     script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js')
     
+    script(type='text/javascript', src='/javascripts/topnav.js')
+    
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-
 
     block scripts
     
   body
   
-    .header-wb
-      h1.page-title Big Outsource
+    //- .header-wb
+    //-   h1.page-title Big Outsource
+    //- 
+    //-   ul.nav-wb
+    //-     li: a(href='/') Home
+    //-     li: a(href='/exam') Applicant Assessment
+    //-     li: a(href='/intern') Intern Tools
+    //-     li: a(href='#about') About
+    //-     li: a(href='#contact') Contact
 
-      ul.nav-wb
-        li: a(href='/') Home
-        li: a(href='/exam') Applicant Assessment
-        li: a(href='/intern') Intern Tools
-        li: a(href='#about') About
-        li: a(href='#contact') Contact
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .small-logo-container
+            a.small-logo(href='#') ↧Big Outsource
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='/') Home
+            li
+              a(href='/exam') Applicant Assessment
+            li
+              a(href='/intern') Intern Tools
+            li
+              a(href='#about') About
+    .container-fluid.big-logo-row
+      .container
+        .row
+          .col-xs-12.big-logo-container
+            h1.big-logo ↧Big Outsource
+
+
 
     .main-content
       block content
