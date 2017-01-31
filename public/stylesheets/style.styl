@@ -24,44 +24,17 @@
     color #444
     font-size 12px
 
-.cons-btn
-  font-size: 16px
-  width: 300px
-  background-color: #E64C66
-  color: white
-  text-align: center
-  padding: 10px
-  margin: auto 40px
-  border-radius: 20px
-  box-shadow: -4px 4px 8px #333
-
-  p
-    text-align: center
-    margin: 20px auto
-
-  &:hover
-    background-color: (#E64C66 - 5)
-    box-shadow: -2px 2px 4px #333
-
-  &:active
-    box-shadow: none
-    background-color: (#E64C66 - 15)
-
-#consequences
-  color: #2D3E50
-  display: inline-block
-  border: 1px solid #333
-  text-align: center
-  padding: 10px
-  min-height: 70px
-  width: 600px
-  margin-left: 40px
-  background-color: #fff
-  border-radius: 5px
-
+/*Stylus variables for navbar height*/
 navbar-height = 50px
-big-logo-padding =  15px
-small-logo-padding = 2px
+big-logo-padding =  20px
+small-logo-padding = 4px
+
+/*Multilevel dropdown*/
+@media (min-width: 767px)
+    .navbar-nav
+        .dropdown-menu
+            .caret
+                transform rotate(-90deg)
 
 .navbar-inverse
     background: rgba(62,195,246,0)
@@ -119,3 +92,39 @@ small-logo-padding = 2px
       padding-bottom: big-logo-padding * 2
     @media (min-width: 1200px)
       font-size: 12em
+
+/*Consequences*/
+.cons-btn
+  font-size: 16px
+  width: 300px
+  background-color: #E64C66
+  color: white
+  text-align: center
+  padding: 10px
+  margin: auto 40px
+  border-radius: 20px
+  box-shadow: -4px 4px 8px #333
+
+  p
+    text-align: center
+    margin: 20px auto
+
+  &:hover
+    background-color: (#E64C66 - 5)
+    box-shadow: -2px 2px 4px #333
+
+  &:active
+    box-shadow: none
+    background-color: (#E64C66 - 15)
+
+#consequences
+  color: #2D3E50
+  display: inline-block
+  border: 1px solid #333
+  text-align: center
+  padding: 10px
+  min-height: 70px
+  width: 600px
+  margin-left: 40px
+  background-color: #fff
+  border-radius: 5px

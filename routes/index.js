@@ -13,15 +13,21 @@ router.get('/exam', function(req, res){
   });
 });
 
-router.get('/intern', function(req, res){
-  res.render('intern/intern', {
-    title: 'Intern Tools'
+router.get('/assessment-form', function(req, res){
+  res.render('intern/assessment-form', {
+    title: 'Assessment Score Data Entry Form'
   });
 });
 
 router.get('/assessment-scores', function(req, res){
   res.render('intern/assessment-scores', {
     title: 'Assessment Scores'
+  });
+});
+
+router.get('/consequence-picker', function(req, res){
+  res.render('intern/consequence-picker', {
+    title: 'Intern Tools'
   });
 });
 

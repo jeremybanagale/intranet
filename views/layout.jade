@@ -8,7 +8,8 @@ html
 
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js')
-        
+    script(type='text/javascript', src='/javascripts/topnav.js')    
+    
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
@@ -35,12 +36,19 @@ html
             li
               a(href='/exam') Applicant Assessment
             li
-              a(href='/intern') Intern Tools
-            li
-              a(href='/assessment-scores') Assessment Scores
-            li
-              a(href='#about') About
-              
+              a.dropdown-toggle(href='#', data-toggle='dropdown') Intern Tools 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/assessment-form') Assessment Score Data Entry Form
+                li
+                  a(href='/assessment-scores') Assessment Scores
+                li.divider
+                li
+                  a(href='/consequence-picker') Consequence Picker
+              li
+                a(href='#about') About
+                
     .container-fluid.big-logo-row
       .container
         .row
