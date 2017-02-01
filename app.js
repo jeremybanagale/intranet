@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var cheerio = require('cheerio');
 var request = require('request');
 
-var index = require('./routes/index');
+var index = require('./routes/home');
 
 var app = express();
 

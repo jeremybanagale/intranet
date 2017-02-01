@@ -3,14 +3,20 @@ var request = require('request');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    res.render('index', {
+    res.render('home', {
         title: 'Home'
     });
 });
 
-router.get('/exam', function(req, res) {
-    res.render('exam', {
+router.get('/applicant/exam', function(req, res) {
+    res.render('applicant/exam', {
         title: 'Applicant Assessment'
+    });
+});
+
+router.get('/applicant/scores', function(req, res) {
+    res.render('applicant/scores', {
+        title: 'Assessment Scores'
     });
 });
 
@@ -20,11 +26,7 @@ router.get('/assessment-form', function(req, res) {
     });
 });
 
-router.get('/assessment-scores', function(req, res) {
-    res.render('intern/assessment-scores', {
-        title: 'Assessment Scores'
-    });
-});
+
 
 router.get('/crawler', function(req, res) {
     res.render('crawler/crawler', {
@@ -51,7 +53,7 @@ function requests(url, callback) {
         var resultsArray = [];
         body = JSON.parse(body);
         // console.log(body);
-        console.log(body.query.results.RDF.item)
+        // console.log(body.query.results.RDF.item)
         // logic used to compare search results with the input from user
         if (!body.query.results.RDF.item) {
             results = "No results found. Try again.";
