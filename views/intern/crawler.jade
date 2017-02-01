@@ -1,0 +1,17 @@
+extends ../layout
+
+block scripts
+  script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js")
+  script(type='text/javascript', src='/javascripts/crawler.js')
+
+
+block content
+    .container
+      h1 search sf jobs
+      input#search(type="search", placeholder="Search Craig's Jobs")
+      ul#results
+      include crawl-template.html    
+      
+
+
+        
