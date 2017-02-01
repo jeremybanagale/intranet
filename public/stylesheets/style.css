@@ -6,8 +6,8 @@
   font-family: 'Source Code Pro', monospace;
 }
 .main-content {
-  margin: 50px auto;
-  max-width: 600px;
+  margin: 50px 50px;
+  max-width: 1200px;
 }
 .main-content p {
   line-height: 1.6;

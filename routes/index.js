@@ -27,7 +27,7 @@ router.get('/assessment-scores', function(req, res) {
 });
 
 router.get('/crawler', function(req, res) {
-    res.render('intern/crawler', {
+    res.render('crawler/crawler', {
         title: 'Intern Tools'
     });
 });
