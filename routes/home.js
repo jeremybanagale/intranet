@@ -2,7 +2,9 @@ var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
 var URL = require('url-parse');
-var scrapeIt = require('scrape-it');
+var Xray = require('x-ray');
+
+var x = Xray();
 
 var router = express.Router();
 
@@ -48,21 +50,18 @@ router.get('/crawler', function(req, res) {
 
 
 router.get('/searching', function(req, res) {
-  // Promise interface
-scrapeIt("http://ionicabizau.net", {
-    title: ".header h1"
-  , desc: ".header h2"
-  , avatar: {
-        selector: ".header img"
-      , attr: "src"
-    }
-}).then(page => {
-    console.log(page);
-    res.json(page);
-});
+    var searchValue = req.query.search;
+    x('https://www.yell.com/s/' + searchValue + '-newcastle+upon+tyne.html', {
+        business: x('.col-sm-24', [{
+            name: '.businessCapsule--title h2',
+            phone: '.businessCapsule--telephone strong'
+        }])
+    })(function(err, page) {
+        res.json(page);
+        console.log(page);
+    })
 
 });
-
 
 // router.get('/searching', function(req, res) {
 //   var START_URL = "http://www.arstechnica.com";

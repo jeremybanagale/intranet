@@ -1,6 +1,11 @@
 <script id="search-results" type="text/x-handlebars-template">
   {{#each .}}
-    <li><a href={{about}}>{{title}}</a><br>{{desc}}<br>{{date}}</li>
+  {{#each business}}
+    <li><a href={{this.phone}}>{{this.name}}</a><br>
+        {{name}}<br>
+        {{this.phone}}
+    </li>
+    {{/each}}
   {{/each}}
   <br>
   </ul>

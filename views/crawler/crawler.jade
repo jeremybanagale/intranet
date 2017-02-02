@@ -1,12 +1,12 @@
 extends ../layout
 
 block scripts
-  script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js")
   script(type='text/javascript', src='/javascripts/crawler.js')
 
 block content
     .container
-      h1 Search SF Bay jobs in Craiglist
+      h1 Search in Newcastle Upon Tyne
       input#search(type="search", placeholder="Search Craig's Jobs")
       ul#results(data-role='listview', data-filter='true')
       include crawl-template.html    

@@ -9,6 +9,7 @@ $(function() {
                 search: $(this).val()
             };
             $.get('/searching', parameters, function(data) {
+                console.log(data);  
                 if (data instanceof Object) {
                     $results.html(dataTemplate({
                         page: data
@@ -16,7 +17,6 @@ $(function() {
                 } else {
                     $results.html(data);
                 };
-                $results.listview().listview('refresh');
             });
         };
     });
