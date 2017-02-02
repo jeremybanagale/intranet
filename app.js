@@ -7,10 +7,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cheerio = require('cheerio');
 var request = require('request');
-
 var index = require('./routes/home');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

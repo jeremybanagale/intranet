@@ -9,13 +9,14 @@ $(function() {
                 search: $(this).val()
             };
             $.get('/searching', parameters, function(data) {
-                if (data instanceof Array) {
+                if (data instanceof Object) {
                     $results.html(dataTemplate({
-                        resultsArray: data
+                        page: data
                     }));
                 } else {
                     $results.html(data);
                 };
+                $results.listview().listview('refresh');
             });
         };
     });
