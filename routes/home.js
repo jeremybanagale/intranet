@@ -51,11 +51,20 @@ router.get('/crawler', function(req, res) {
 
 router.get('/searching', function(req, res) {
     var searchValue = req.query.search;
+
     x('https://www.yell.com/s/' + searchValue + '-newcastle+upon+tyne.html', {
-        business: x('.col-sm-24', [{
+        business: x('.businessCapsule', [{
             name: '.businessCapsule--title h2',
-            phone: '.businessCapsule--telephone strong'
+            phone: '.businessCapsule--telephone strong',
+            street_address: '.businessCapsule--address a span span:nth-child(1)',
+            address_locality: '.businessCapsule--address a span span:nth-child(2)',
+            postal_cde: '.businessCapsule--address a span span:nth-child(3)',
+            category: '.businessCapsule--classificationText span',
+            website: '.businessCapsule--callToAction a@href',
+            page_url: '.col-sm-24 a@href'
         }])
+        .paginate('.pagination--next@href')
+        .limit(3)
     })(function(err, page) {
         res.json(page);
         console.log(page);
@@ -132,48 +141,6 @@ router.get('/searching', function(req, res) {
 //     });
 // }
 // });
-
-
-
-// router.get('/searching', function(req, res) {
-//     // input value from search
-//     var val = req.query.search;
-//     // url used to search yql
-//     var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20craigslist.search" +
-//         "%20where%20location%3D%22sfbay%22%20and%20type%3D%22jjj%22%20and%20query%3D%22" + val + "%22&format=" +
-//         "json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-//
-//     requests(url, function(data) {
-//         res.send(data);
-//     });
-// });
-//
-// function requests(url, callback) {
-//     // request module is used to process the yql url and return the results in JSON format
-//     request(url, function(err, resp, body) {
-//         var resultsArray = [];
-//
-//         body = JSON.parse(body);
-//         // logic used to compare search results with the input from user
-//         if (!body.query.results.RDF.item) {
-//             results = "No results found. Try again.";
-//             callback(results);
-//         } else {
-//             results = body.query.results.RDF.item;
-//             for (var i = 0; i < results.length; i++) {
-//                 resultsArray.push({
-//                     title: results[i].title[0],
-//                     about: results[i]["about"],
-//                     desc: results[i]["description"],
-//                     date: results[i]["date"]
-//                 });
-//             };
-//         };
-//         // pass back the results to client side
-//         callback(resultsArray);
-//         console.log(resultsArray);
-//     });
-// };
 
 
 

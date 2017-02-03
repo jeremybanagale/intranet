@@ -9,9 +9,9 @@ $(function() {
                 search: $(this).val()
             };
             $.get('/searching', parameters, function(data) {
-                console.log(data);  
+                console.log(data);
                 if (data instanceof Object) {
-                    $results.html(dataTemplate({
+                    $results.append(dataTemplate({
                         page: data
                     }));
                 } else {

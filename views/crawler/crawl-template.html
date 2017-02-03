@@ -1,12 +1,18 @@
 <script id="search-results" type="text/x-handlebars-template">
-  {{#each .}}
-  {{#each business}}
-    <li><a href={{this.phone}}>{{this.name}}</a><br>
-        {{name}}<br>
-        {{this.phone}}
-    </li>
+    {{#each .}}
+      {{#each business}}
+      <li>
+          <a href={{page_url}} target="_blank">{{name}}</a><br>
+          Phone: {{phone}}<br>
+          Street: {{street_address}}<br>
+          City: {{address_locality}}<br>
+          Postal: {{postal_code}}<br>
+          Category: {{category}}<br>
+          Website: {{website}}
+          <br>
+      </li>
+      {{/each}}
     {{/each}}
-  {{/each}}
-  <br>
-  </ul>
+    <br>
+    </ul>
 </script>
