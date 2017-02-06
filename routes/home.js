@@ -53,35 +53,13 @@ router.get('/searching', function(req, res) {
     var searchValue = req.query.search;
     var url = "https://www.yell.com/s/" + searchValue + "-newcastle+upon+tyne.html";
 
-    scrapeResults(url);
-    // x('https://www.yell.com/s/' + searchValue + '-newcastle+upon+tyne.html', {
-    //     business: x('.businessCapsule', [{
-    //             name: '.businessCapsule--title h2',
-    //             phone: '.businessCapsule--telephone strong',
-    //             street_address: '.businessCapsule--address a span span:nth-child(1)',
-    //             address_locality: '.businessCapsule--address a span span:nth-child(2)',
-    //             postal_cde: '.businessCapsule--address a span span:nth-child(3)',
-    //             category: '.businessCapsule--classificationText span',
-    //             website: '.businessCapsule--callToAction a@href',
-    //             page_url: '.col-sm-24 a@href'
-    //         }])
-    //         .paginate('.pagination--next@href')
-    //         .limit(3)
-    // })(function(err, page) {
-    //     res.json(page);
-    //     console.log(page);
-    // })
-
-});
-
-function scrapeResults(url) {
     x(url, {
         business: x('.businessCapsule', [{
                 name: '.businessCapsule--title h2',
                 phone: '.businessCapsule--telephone strong',
                 street_address: '.businessCapsule--address a span span:nth-child(1)',
                 address_locality: '.businessCapsule--address a span span:nth-child(2)',
-                postal_cde: '.businessCapsule--address a span span:nth-child(3)',
+                postal_code: '.businessCapsule--address a span span:nth-child(3)',
                 category: '.businessCapsule--classificationText span',
                 website: '.businessCapsule--callToAction a@href',
                 page_url: '.col-sm-24 a@href'
@@ -92,7 +70,9 @@ function scrapeResults(url) {
         res.json(page);
         console.log(page);
     })
-}
+
+});
+
 // router.get('/searching', function(req, res) {
 //   var START_URL = "http://www.arstechnica.com";
 //   var SEARCH_WORD = "stemming";
