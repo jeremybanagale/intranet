@@ -6,42 +6,9 @@
   box-sizing border-box
   font-family 'Source Code Pro', monospace
 
-.header-wb
-  background url('https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925')
-  min-height 300px
-  background-position center
-  background-attachment fixed
-  background-repeat no-repeat
-  background-size cover
-
-.page-title
-  font-weight 200
-  font-size 80px
-  text-align center
-  padding 100px
-  text-transform uppercase
-  color #fff
-
-.nav-wb
-  background #000
-  text-align center
-
-  li
-    display inline-block
-
-  a
-    display inline-block
-    padding 20px
-    color #fff
-    text-decoration none
-
-    &:hover
-      background-color #3AB795
-      text-decoration underline
-
 .main-content
-  margin 50px auto
-  max-width 600px
+  margin 50px 100px
+  max-width 1200px
 
   p
     line-height 1.6
@@ -57,6 +24,76 @@
     color #444
     font-size 12px
 
+/*Stylus variables for navbar height*/
+navbar-height = 50px
+big-logo-padding =  20px
+small-logo-padding = 4px
+
+/*Multilevel dropdown*/
+@media (min-width: 767px)
+    .navbar-nav
+        .dropdown-menu
+            .caret
+                transform rotate(-90deg)
+
+.navbar-inverse
+    background: rgba(62,195,246,0)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    border-bottom: none
+
+.navbar-inverse .navbar-toggle
+    border: 1px solid #333
+    border-color: rgba(255, 255, 255, 0.7)
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form
+    border-color: transparent
+    @media (max-width: 767px)
+      background: rgba(255,255,255,0.75)
+
+.navbar-inverse .navbar-nav > li > a
+    color: black
+
+    &:hover &:focus
+      color: #22F
+
+.small-logo-container
+    padding-top: navbar-height
+    height: navbar-height
+    overflow: hidden
+
+.small-logo
+    color: white
+    font-size: 2.5em
+    padding-bottom: small-logo-padding
+
+.big-logo-row
+    background: gold
+
+    .big-logo-container
+      padding-top: navbar-height
+
+.h1
+    font-size: 4em
+    margin: 0
+    padding 0 0 big-logo-padding 0
+
+    @media (min-width: 400px)
+      font-size: 4.5em
+    @media (min-width: 440px)
+      font-size: 5.5em
+    @media (min-width: 500px)
+      font-size: 6.5em
+    @media (min-width: 630px)
+      font-size: 7.5em
+    @media (min-width: 768px)
+      font-size: 9em
+      padding-bottom: big-logo-padding * 2
+    @media (min-width: 1200px)
+      font-size: 12em
+
+/*Consequences*/
 .cons-btn
   font-size: 16px
   width: 300px
@@ -71,7 +108,7 @@
   p
     text-align: center
     margin: 20px auto
-    
+
   &:hover
     background-color: (#E64C66 - 5)
     box-shadow: -2px 2px 4px #333
@@ -91,3 +128,31 @@
   margin-left: 40px
   background-color: #fff
   border-radius: 5px
+
+/*Crawler*/
+#search
+  text-align: center
+  width:500px
+  height: 70px
+  font-size:3.5em
+  border-radius:8px
+  margin: 10px
+  padding: 10px
+
+#location
+    text-align: center
+    width: 400px
+    height: 70px
+    font-size: 2.5em
+    border-radius: 8px
+    margin: 10px
+    padding: 10px
+
+
+#search-btn
+    text-align: center
+    width: 200px
+    height: 100px
+    font-size: 2.5em
+    border-radius: 8px
+    display: inline-block

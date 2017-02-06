@@ -6,29 +6,69 @@ html
     title Big Outsource Intranet
     meta(name='author', content='Jigno Alfred V. Venezuela')
 
-    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
-    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js')
+    script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(type='text/javascript', src='/javascripts/topnav.js')    
     
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-
 
     block scripts
     
   body
   
-    .header-wb
-      h1.page-title Big Outsource
-
-      ul.nav-wb
-        li: a(href='/') Home
-        li: a(href='/exam') Applicant Assessment
-        li: a(href='/intern') Intern Tools
-        li: a(href='#about') About
-        li: a(href='#contact') Contact
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            
+          .small-logo-container
+            a.small-logo(href='#') ↥Big Outsource
+            
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='/') Home
+            li
+              a(href='/applicant/exam') Applicant Assessment
+              
+            li
+              a.dropdown-toggle(href='#', data-toggle='dropdown') Intern Tools 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/intern/assessment-form') Assessment Score Data Entry Form
+                  
+                li.divider
+                li
+                  a(href='/crawler') Web Crawler
+                  
+                li.divider
+                li
+                  a(href='/intern/consequence-picker') Consequence Picker
+              
+              li
+                a.dropdown-toggle(href='#', data-toggle='dropdown') Admin Tools 
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='/applicant/scores') Assessment Scores   
+              li
+                a(href='#about') About
+                
+    .container-fluid.big-logo-row
+      .container
+        .row
+          .col-xs-12.big-logo-container
+            h1.big-logo ↧Big Outsource
 
     .main-content
       block content
 
     .footer-wb
-      p Copyright 2017 Jigno Alfred V. Venezuela © Big Outsource
+      p Copyright Jigno Alfred V. Venezuela © 2017
