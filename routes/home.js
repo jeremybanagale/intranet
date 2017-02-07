@@ -51,7 +51,8 @@ router.get('/crawler', function(req, res) {
 
 router.get('/searching', function(req, res) {
     var searchValue = req.query.search;
-    var url = "https://www.yell.com/s/" + searchValue + "-newcastle+upon+tyne.html";
+    var locationValue = req.query.location;
+    var url = "https://www.yell.com/s/" + searchValue + "-" + locationValue.split(' ').join('+') + ".html";
 
     x(url, {
         business: x('.businessCapsule', [{
@@ -60,15 +61,14 @@ router.get('/searching', function(req, res) {
                 street_address: '.businessCapsule--address a span span:nth-child(1)',
                 address_locality: '.businessCapsule--address a span span:nth-child(2)',
                 postal_code: '.businessCapsule--address a span span:nth-child(3)',
-                category: '.businessCapsule--classificationText span',
+                category: '.businessCapsule--classificationText',
                 website: '.businessCapsule--callToAction a@href',
                 page_url: '.col-sm-24 a@href'
             }])
             .paginate('.pagination--next@href')
-            .limit(3)
+            .limit(1)
     })(function(err, page) {
         res.json(page);
-        console.log(page);
     })
 
 });

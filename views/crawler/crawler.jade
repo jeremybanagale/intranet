@@ -2,14 +2,20 @@ extends ../layout
 
 block scripts
   script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.4/papaparse.min.js")
+
   script(type='text/javascript', src='/javascripts/crawler.js')
 
 block content
     .container
-      h1 Search in Newcastle Upon Tyne
-      input#search(type="search", placeholder="Search Yell.com")
+      h1 Search Yell.com
+      div#status(style="display:none")
+        p Scrape finished...
+      input#location(type="search", placeholder="Enter location")
+      input#search(type="search", placeholder="Enter category")
+      button#download.btn.btn-info(type="button") Download
       ul#results(data-role='listview', data-filter='true')
-      include crawl-template.html    
+        include crawl-template.html    
       
 
 
