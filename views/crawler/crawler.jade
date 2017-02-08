@@ -9,11 +9,22 @@ block scripts
 block content
     .container
       h1 Search Yell.com
-      div#status(style="display:none")
-        p Scrape finished...
+      #alert-area
+      #scraperModal.modal.fade(role="dialog")
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close("button", data-dismiss="modal") x
+              h4.modal-title Scraping Status
+            .modal-body
+              p Scrape finished...
+            .modal-footer
+              button#download.btn.default(type="button") Download
+              button.btn.btn-default(type="button", data-dismiss="modal") Close
+                
       input#location(type="search", placeholder="Enter location")
       input#search(type="search", placeholder="Enter category")
-      button#download.btn.btn-info(type="button") Download
+      
       ul#results(data-role='listview', data-filter='true')
         include crawl-template.html    
       

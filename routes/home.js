@@ -66,7 +66,6 @@ router.get('/searching', function(req, res) {
                 page_url: '.col-sm-24 a@href'
             }])
             .paginate('.pagination--next@href')
-            .limit(1)
     })(function(err, page) {
         res.json(page);
     })
