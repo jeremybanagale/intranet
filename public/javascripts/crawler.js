@@ -24,34 +24,84 @@ $(function() {
                     $results.append(data);
                 };
 
-                scrapedData.push(data);
-                $('#scraperModal').modal('show');
-                $(".alert").delay(5000).fadeOut("slow", function() {
-                    $(this).remove();
+
+                // data.business = $.grep(data.business, function(a) {
+                //     return a.category.indexOf('Wedding');
+                //   });
+                // });
+
+                showModal(parameters, data.business.length);
+                data.business = filterArray(data.business, {
+                  name: 'Gregg',
+                  category: 'Wedding'
                 });
+                scrapedData.push(data);
             });
         };
 
+        function filterArray(data, filters) {
+            var filteredData,
+                predicates = [
+                    function removeNames(data) {
+                        return data.name.indexOf(filters.name);
+                    },
+                    function removeCategories(data) {
+                        return data.category.indexOf(filters.category);
+                    }
+                ];
+
+            if (!name && !category) {
+                filteredData = data;
+            } else {
+                filteredData = $.grep(data, function(el, index) {
+                    for (var i = 0; i < predicates.length; i++) {
+                        if (!predicates[i](el)) return false;
+                    }
+                    return true;
+                });
+            }
+            return filteredData;
+        }
+
         function newAlert(header, message) {
             $("#alert-area").append($("<div class='alert alert-warning alert-dismissible show' role='alert'>" +
-              "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>" +
-              "<span aria-hidden='true'>&times;</span></button>" +
-              "<strong>" + header + "</strong> " + message + "</div>"));
+                "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>" +
+                "<span aria-hidden='true'>&times;</span></button>" +
+                "<strong>" + header + "</strong> " + message + "</div>"));
+        }
+
+        function showModal(parameters, count) {
+            var msg = "Scraped " + count + " " + parameters.search + " from " + parameters.location + ".";
+
+            $('#scraperModal').modal('show');
+            $('.modal-msg').text(msg);
+            $(".alert").delay(3000).fadeOut("slow", function() {
+                $(this).remove();
+            });
         }
     });
 
     $("#download").click(function() {
         var csv = '';
 
-        for (var i = 0; i < scrapedData.length; i++) {
+        csv = Papa.unparse(scrapedData[0].business, {
+            quotes: false,
+            quoteChar: '"',
+            delimiter: ",",
+            header: true,
+            newline: "\r\n"
+        });
 
-            csv += Papa.unparse(scrapedData[i].business, {
-                quotes: false,
-                quoteChar: '"',
-                delimiter: ",",
-                header: true,
-                newline: "\r\n"
-            });
+        if (scrapedData.length > 0) {
+            for (var i = 1; i < scrapedData.length; i++) {
+                csv += "\r\n" + Papa.unparse(scrapedData[i].business, {
+                    quotes: false,
+                    quoteChar: '"',
+                    delimiter: ",",
+                    header: false,
+                    newline: "\r\n"
+                });
+            }
         }
 
         var downloadLink = document.createElement("a");
@@ -65,6 +115,44 @@ $(function() {
         downloadLink.click();
         document.body.removeChild(downloadLink);
     });
+});
 
+$(function() {
+    var datalist = document.getElementById('json-locations');
+    var input = document.getElementById('location');
+    var req = new XMLHttpRequest();
 
+    // Handle state changes for the request.
+    req.onreadystatechange = function(res) {
+        if (req.readyState === 4) {
+            if (req.status === 200) {
+                // Parse JSON
+                var json = JSON.parse(req.responseText);
+                var jsonOptions = json.locations;
+
+                // Loop over JSON array
+                jsonOptions.forEach(function(item) {
+                    // Create a new <option> element.
+                    var option = document.createElement('option');
+
+                    // Set the value using the item in the JSON array.
+                    option.value = item;
+                    // Add the <option> element to the <datalist>.
+                    datalist.appendChild(option);
+                });
+
+                // Update the placeholder text.
+                input.placeholder = "e.g. Glasgow";
+            } else {
+                // An error occured.
+                input.placeholder = "Couldn't load datalist options...";
+            }
+        }
+    };
+    // Update the placeholder text.
+    input.placeholder = "Loading options...";
+
+    // Set up and make the request.
+    req.open('GET', '/crawler.json', true);
+    req.send();
 });

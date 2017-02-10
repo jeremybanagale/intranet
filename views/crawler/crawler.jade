@@ -17,14 +17,17 @@ block content
               button.close("button", data-dismiss="modal") x
               h4.modal-title Scraping Status
             .modal-body
-              p Scrape finished...
+              p.modal-msg Scrape finished...
             .modal-footer
-              button#download.btn.default(type="button") Download
               button.btn.btn-default(type="button", data-dismiss="modal") Close
                 
-      input#location(type="search", placeholder="Enter location")
-      input#search(type="search", placeholder="Enter category")
-      
+      //- input#location(type="search", placeholder="Enter location")
+      div#page-wrapper
+        label(for="location") Select a location:
+        input#location(type="text", list="json-locations", placeholder="e.g. Glasgow")
+        datalist#json-locations
+        input#search(type="search", placeholder="Enter category")
+        button#download.btn.default(type="button") Download
       ul#results(data-role='listview', data-filter='true')
         include crawl-template.html    
       
