@@ -24,17 +24,19 @@ $(function() {
                     $results.append(data);
                 };
 
-
-                // data.business = $.grep(data.business, function(a) {
-                //     return a.category.indexOf('Wedding');
-                //   });
-                // });
+                var D121 = {
+                  name: '',
+                  phone: '',
+                  category: [
+                    'Hospitals',
+                    'Bakeries',
+                    'Restaurant',
+                    'Printers'
+                  ],
+                };
 
                 showModal(parameters, data.business.length);
-                data.business = filterArray(data.business, {
-                  name: 'Gregg',
-                  category: 'Wedding'
-                });
+                data.business = filterArray(data.business, D121);
                 scrapedData.push(data);
             });
         };
@@ -43,14 +45,26 @@ $(function() {
             var filteredData,
                 predicates = [
                     function removeNames(data) {
-                        return data.name.indexOf(filters.name);
+                      for (var i = 0; i < filters.name.length; i++)
+                        if (data.name.indexOf(filters.name[i]) != -1)
+                          return false;
+                      return true;
+                    },
+                    function removePhone(data) {
+                      for (var i = 0; i < filters.phone.length; i++)
+                        if (data.phone.indexOf(filters.phone[i]) != -1)
+                          return false;
+                      return true;
                     },
                     function removeCategories(data) {
-                        return data.category.indexOf(filters.category);
+                      for (var i = 0; i < filters.category.length; i++)
+                        if (data.category.indexOf(filters.category[i]) != -1)
+                          return false;
+                      return true;
                     }
                 ];
 
-            if (!name && !category) {
+            if (!filters) {
                 filteredData = data;
             } else {
                 filteredData = $.grep(data, function(el, index) {
@@ -103,6 +117,9 @@ $(function() {
                 });
             }
         }
+
+        scrapedData.length = 0;
+        console.log(scrapedData.length);
 
         var downloadLink = document.createElement("a");
         var blob = new Blob(["\ufeff", csv]);

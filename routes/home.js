@@ -9,8 +9,18 @@ var x = Xray({
         trim: function(value) {
             return typeof value === 'string' ? value.trim() : value
         },
-        removeSpace: function(value) {
-          return typeof value === 'string' ? value.trim().split(' ').join('') : value
+        formatString: function(value) {
+          value = value.replace(/,\s*$/, '');
+          return value.replace(/\w\S*/g, function(s){return s.charAt(0).toUpperCase() + s.substr(1).toLowerCase();});
+        },
+        formatPhoneUK: function(value) {
+          // return typeof value === 'string' ? value.trim().split(' ').join('') : value
+          if (typeof value === 'string') {
+            value = value.trim().split(' ').join('');
+            return value.replace(/^0/, '44');
+          } else {
+            return value;
+          }
         }
     }
 });
@@ -75,9 +85,9 @@ router.get('/searching', function(req, res) {
     x(url, {
         business: x('.businessCapsule', [{
                 name: '.businessCapsule--title h2',
-                phone: '.businessCapsule--telephone strong | removeSpace',
-                street_address: '.businessCapsule--address a span span:nth-child(1)',
-                address_locality: '.businessCapsule--address a span span:nth-child(2)',
+                phone: '.businessCapsule--telephone strong | formatPhoneUK',
+                street_address: '.businessCapsule--address a span span:nth-child(1) | formatString',
+                address_locality: '.businessCapsule--address a span span:nth-child(2) | formatString',
                 postal_code: '.businessCapsule--address a span span:nth-child(3)',
                 category: '.businessCapsule--classificationText | trim',
                 website: '.businessCapsule--callToAction a@href',
