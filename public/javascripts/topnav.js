@@ -1,5 +1,5 @@
 $(window).scroll(function() {
-  var navbarColor = "62,195,246";//color attr for rgba
+  var navbarColor = "225, 225, 225"
   var smallLogoHeight = $('.small-logo').height();
   var bigLogoHeight = $('.big-logo').height();
   var navbarHeight = $('.navbar').height();
@@ -15,7 +15,7 @@ $(window).scroll(function() {
   if (smallPadding < 0) { smallPadding = 0; }
 
   $('.small-logo-container ').css({ "padding-top": smallPadding});
-
+  
   var navOpacity = ySmall / smallLogoHeight;
   if  (navOpacity > 1) { navOpacity = 1; }
   if (navOpacity < 0 ) { navOpacity = 0; }
@@ -24,7 +24,7 @@ $(window).scroll(function() {
 
   var shadowOpacity = navOpacity * 0.4;
   if ( ySmall > 1) {
-    $('.navbar').css({"box-shadow": "0 2px 3px rgba(0,0,0," + shadowOpacity + ")"});
+    $('.navbar').css({"box-shadow": "0 3px 3px rgba(0,0,0," + shadowOpacity + ")"});
   } else {
     $('.navbar').css({"box-shadow": "none"});
   }
