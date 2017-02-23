@@ -47,7 +47,7 @@
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: transparent;
+  border-color: #002a43;
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-collapse .navbar-inverse .navbar-form {
