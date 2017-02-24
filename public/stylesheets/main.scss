@@ -1,13 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=SourceCodePro:400,200,700");
 /* *********************************
            Variables
   ********************************** */
 $navbar-height: 55px;
-$big-logo-padding: 50px; // adjust these 2 values
+$big-logo-padding: 15px; // adjust these 2 values
 $small-logo-padding: 4px; // of bottom padding to look nice
 
-/* *********************************
-   Some Style Overrides on Bootstrap
-  ********************************** */
 * {
   margin: 0;
   padding: 0;
@@ -57,11 +55,11 @@ $small-logo-padding: 4px; // of bottom padding to look nice
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #002a43;
+  border-color: transparent;
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-collapse .navbar-inverse .navbar-form {
-    background: rgba(0, 42, 67,0.75);
+    background: rgba(255,255,255,0.75);
   }
 }
 .small-logo-container {
@@ -70,26 +68,16 @@ $small-logo-padding: 4px; // of bottom padding to look nice
   overflow: hidden;
 }
 .small-logo {
+  color: #1f75a7;
   font-size: 2.5em;
   padding-bottom: $small-logo-padding;
-
-}
-.small-logo > b {
-  font-size:30px;
-  font-family: arial;
-  color: #002a43;
-}
-.small-logo > span {
-  font-size:20px;
-  font-family: arial;
-  color: #676262;
 }
 /**********/
 .big-logo-row {
   background: #002a43;
 }
 .big-logo-row .big-logo-container {
-  padding-top: 10px;
+  padding-top: $navbar-height;
 }
 .big-logo > b {
   font-family: arial;
@@ -99,7 +87,7 @@ $small-logo-padding: 4px; // of bottom padding to look nice
   font-family: arial;
   color: #676262;
 }
-.big-logo-row >  h1 {
+.big-logo-row > h1 {
     font-size: 4em;
     margin:0;
     padding:0 0 $big-logo-padding 0;
@@ -110,7 +98,7 @@ $small-logo-padding: 4px; // of bottom padding to look nice
     @media (min-width: 630px) { font-size: 7.5em;  }
     @media (min-width: 768px) { font-size: 9em; padding-bottom: $big-logo-padding * 2; }
     @media (min-width: 1200px) { font-size: 12em; }
-  }
+  
 }
 .cons-btn {
   font-size: 16px;
