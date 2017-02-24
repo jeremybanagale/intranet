@@ -1,3 +1,13 @@
+/* *********************************
+           Variables
+  ********************************** */
+$navbar-height: 55px;
+$big-logo-padding: 15px; // adjust these 2 values
+$small-logo-padding: 4px; // of bottom padding to look nice
+
+/* *********************************
+   Some Style Overrides on Bootstrap
+  ********************************** */
 * {
   margin: 0;
   padding: 0;
@@ -55,13 +65,13 @@
   }
 }
 .small-logo-container {
-  padding-top: 50px;
-  height: 50px;
+  padding-top: $navbar-height;
+  height: $navbar-height;
   overflow: hidden;
 }
 .small-logo {
   font-size: 2.5em;
-  padding-bottom: 4px;
+  padding-bottom: $small-logo-padding;
 
 }
 .small-logo > b {
@@ -79,7 +89,7 @@
   background: #002a43;
 }
 .big-logo-row .big-logo-container {
-  padding-top: 30px;
+  padding-top: $navbar-height;
 }
 .big-logo > b {
   font-family: arial;
@@ -89,41 +99,17 @@
   font-family: arial;
   color: #676262;
 }
-.h1 {
-  font-size: 4em;
-  margin: 0;
-  padding: 0 0 20px 0;
-}
-/**************/
-@media (min-width: 400px) {
-  .h1 {
-    font-size: 4.5em;
-  }
-}
-@media (min-width: 440px) {
-  .h1 {
-    font-size: 5.5em;
-  }
-}
-@media (min-width: 500px) {
-  .h1 {
-    font-size: 6.5em;
-  }
-}
-@media (min-width: 630px) {
-  .h1 {
-    font-size: 7.5em;
-  }
-}
-@media (min-width: 768px) {
-  .h1 {
-    font-size: 9em;
-    padding-bottom: 40px;
-  }
-}
-@media (min-width: 1200px) {
-  .h1 {
-    font-size: 12em;
+.big-logo-row >  h1 {
+    font-size: 4em;
+    margin:0;
+    padding:0 0 $big-logo-padding 0;
+    
+    @media (min-width: 400px) { font-size: 4.5em; }
+    @media (min-width: 440px) { font-size: 5.5em; }
+    @media (min-width: 500px) { font-size: 6.5em; }
+    @media (min-width: 630px) { font-size: 7.5em;  }
+    @media (min-width: 768px) { font-size: 9em; padding-bottom: $big-logo-padding * 2; }
+    @media (min-width: 1200px) { font-size: 12em; }
   }
 }
 .cons-btn {
