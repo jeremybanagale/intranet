@@ -24,7 +24,7 @@ mywindow.scroll(function() {
     $(".small-logo-container").fadeTo(500, 1);
     up = !up;
 
-  } else if (newscroll == 0 && up) {
+  } else if (newscroll < navHeight && up) {
     navOpacity = 0;
     navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
     $('.navbar').css({
