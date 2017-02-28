@@ -1,86 +1,73 @@
-@import url("https://fonts.googleapis.com/css?family=SourceCodePro:400,200,700");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Source Code Pro', monospace;
+/* *********************************
+           Variables
+  ********************************** */
+$navbar-paddingTop:10px;
+$navbar-height: 50px;
+
+$small-logo-padding: 2px; // of bottom padding to look nice
+.main-content{
+  padding-top: $navbar-height + $navbar-paddingTop * 3;
 }
-.main-content {
-  margin: 50px 100px;
-  max-width: 1200px;
-}
-.main-content p {
-  color: #868889;
-  font-size: 19px;
-  line-height: 1.6;
-  margin-bottom: 1.7em;
-}
-.footer-wb {
-  margin: 50px auto;
-  max-width: 600px;
-  border-top: 1px solid #444;
-  padding: 20px 0;
-}
-.footer-wb p {
-  color: #444;
-  font-size: 12px;
-}
-@media (min-width: 767px) {
-  .navbar-nav .dropdown-menu .caret {
-    transform: rotate(-90deg);
-  }
-}
+/* *********************************
+   Some Style Overrides on Bootstrap
+  ********************************** */
+
 .navbar-inverse {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: rgba(0, 42, 67,0);
   border-bottom: none;
+  padding:$navbar-paddingTop;
 }
+
 .navbar-inverse .navbar-toggle {
   border: 1px solid #333;
-  border-color: rgba(255,255,255,0.7);
+  border-color: rgba(255, 255, 255, 0.7);
 }
-.navbar-inverse .navbar-nav > li > a {
-  color: #686565;
-}
-.navbar-inverse .navbar-nav > li > a:hover .navbar-inverse .navbar-nav > li > a:focus {
-  color: #686565;
-}
+
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: transparent;
-}
-@media (max-width: 767px) {
-  .navbar-inverse .navbar-collapse .navbar-inverse .navbar-form {
-    background: rgba(255,255,255,0.75);
+  @media (max-width: 767px) {
+    background: rgba(255, 255, 255, 0.75);
   }
 }
-.small-logo-container {
-  padding-top: 50px;
-  height: 50px;
-  overflow: hidden;
-}
-.small-logo {
-  font-size: 2.5em;
-  padding-bottom: 4px;
 
+.navbar-inverse .navbar-nav > li > a {
+  color: #686565;
 }
-.small-logo > b {
-  font-size:30px;
-  font-family: arial;
-  color: #002a43;
+
+.navbar-inverse .navbar-nav > li:hover,
+.navbar-inverse .navbar-nav > li:focus {
+  color: #68656;
+}
+
+
+/* *********************************
+           Toolbar Logo
+  ********************************** */
+
+.small-logo-container {
+  padding-top: 0px;
+  height: $navbar-height;
+  overflow: hidden;
+  
+}
+
+.small-logo {
+  color: white;
+  font-size: 2.5em;
+  padding-bottom: $navbar-paddingTop;
 }
 .small-logo > span {
-  font-size:20px;
   font-family: arial;
   color: #676262;
 }
+
 /**********/
 .big-logo-row {
   background: #002a43;
 }
 .big-logo-row .big-logo-container {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .big-logo > b {
   font-family: arial;
@@ -93,7 +80,7 @@
 .h1 {
   font-size: 4em;
   margin: 0;
-  padding: 0 0 20px 0;
+  padding: 50px 0 20px 0;
 }
 /**************/
 @media (min-width: 400px) {
