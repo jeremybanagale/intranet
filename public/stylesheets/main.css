@@ -37,7 +37,7 @@ $small-logo-padding: 2px; // of bottom padding to look nice
 
 .navbar-inverse .navbar-nav > li:hover,
 .navbar-inverse .navbar-nav > li:focus {
-  color: #68656;
+  color: #686565;
 }
 
 
@@ -46,7 +46,7 @@ $small-logo-padding: 2px; // of bottom padding to look nice
   ********************************** */
 
 .small-logo-container {
-  padding-top: 0px;
+  padding-top: $navbar-height;
   height: $navbar-height;
   overflow: hidden;
   
@@ -70,12 +70,12 @@ $small-logo-padding: 2px; // of bottom padding to look nice
   padding-top: 100px;
 }
 .big-logo > b {
-  font-size: 100px;
+  
   font-family: arial;
   color: #fff;
 }
 .big-logo > span {
-  font-size: 70px;
+  
   font-family: arial;
   color: #676262;
 }
