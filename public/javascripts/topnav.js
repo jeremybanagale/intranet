@@ -3,7 +3,7 @@ var mywindow = $(window);
 var mypos = mywindow.scrollTop();
 var up = false;
 var newscroll;
-var navHeight = $(".big-logo-row").height() - $(".navbar").height();
+var navHeight = $(".big-logo-row").height() /2;
 mywindow.scroll(function() {
   newscroll = mywindow.scrollTop();
   var navbarColor = "0, 42, 67";
