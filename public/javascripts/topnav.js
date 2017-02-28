@@ -1,8 +1,9 @@
+
 var mywindow = $(window);
 var mypos = mywindow.scrollTop();
 var up = false;
 var newscroll;
-
+var navHeight = $(".big-logo-row").height() - $(".navbar").height();
 mywindow.scroll(function() {
   newscroll = mywindow.scrollTop();
   var navbarColor = "0, 42, 67";
@@ -10,7 +11,7 @@ mywindow.scroll(function() {
   var navBackColor;
   var smallLogoBarColor = "0, 42, 67"
   var smallLogoBackColor;
-  if (newscroll > mypos && !up) {
+  if (newscroll > navHeight && !up) {
     navOpacity = 1;
     navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
     //smallLogoBackColor = 'rgb(' + smallLogoBarColor + ')';
