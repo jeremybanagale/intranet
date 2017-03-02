@@ -17,11 +17,7 @@ $(document).ready(function(){
   });
   
 })
-var mywindow = $(window);
-var mypos = mywindow.scrollTop();
-var up = false;
-var newscroll;
-var navHeight = $(".big-logo-row").height() /2;
+ewscroll;
 mywindow.scroll(function() {
   newscroll = mywindow.scrollTop();
   var navbarColor = "0, 42, 67";
@@ -29,7 +25,7 @@ mywindow.scroll(function() {
   var navBackColor;
   var smallLogoBarColor = "0, 42, 67"
   var smallLogoBackColor;
-  if (newscroll > navHeight && !up) {
+  if (newscroll > 0 && !up) {
     navOpacity = 1;
     navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
     //smallLogoBackColor = 'rgb(' + smallLogoBarColor + ')';
@@ -42,7 +38,7 @@ mywindow.scroll(function() {
     $(".small-logo-container").fadeTo(500, 1);
     up = !up;
 
-  } else if (newscroll < navHeight && up) {
+  } else if (newscroll == 0 && up) {
     navOpacity = 0;
     navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
     $('.navbar').css({
@@ -56,5 +52,6 @@ mywindow.scroll(function() {
   }
 
   mypos = newscroll;
-  console.log(mypos);
+
 });
+
