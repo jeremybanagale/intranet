@@ -42,7 +42,7 @@ mywindow.scroll(function() {
     up = !up;
 
   } else if (newscroll == 0 && up) {
-    navOpacity = 0;
+    navOpacity = 0.5;
     navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
     $('.navbar').css({
       "background-color": navBackColor
@@ -55,6 +55,6 @@ mywindow.scroll(function() {
   }
 
   mypos = newscroll;
-
+  console.log(mypos);
 });
 
