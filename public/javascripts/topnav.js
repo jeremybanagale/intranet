@@ -26,12 +26,10 @@ mywindow.scroll(function() {
   var navbarColor = "0, 42, 67";
   var navOpacity = 0;
   var navBackColor;
-  var smallLogoBarColor = "0, 42, 67"
-  var smallLogoBackColor;
   if (newscroll > 0 && !up) {
     navOpacity = 1;
     navBackColor = 'rgba(' + navbarColor + ',' + navOpacity + ')';
-    //smallLogoBackColor = 'rgb(' + smallLogoBarColor + ')';
+
     $('.navbar').css({
       "background-color": navBackColor
     });
