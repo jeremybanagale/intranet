@@ -17,7 +17,10 @@ $(document).ready(function(){
   });
   
 })
-ewscroll;
+var mywindow = $(window);
+var mypos = mywindow.scrollTop();
+var up = false;
+var newscroll;
 mywindow.scroll(function() {
   newscroll = mywindow.scrollTop();
   var navbarColor = "0, 42, 67";
