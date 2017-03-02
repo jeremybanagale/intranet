@@ -17,7 +17,7 @@ html
     link(rel='stylesheet', href='/stylesheets/main.css')
     
 
-  body
+    body
     .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container
         .navbar-header
@@ -28,8 +28,7 @@ html
             span.icon-bar
           .small-logo-container
             a.small-logo(href='#')
-              b
-              span
+              img(src="http://www.bigoutsource.com/wp-content/themes/bigoutsource-2017/img/logo-bigoutsource.png")
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
             li.active
@@ -74,18 +73,23 @@ html
               a(href='#about')
                 span.fa.fa-info-circle(aria-hidden='true')
                 |  About
-            li
-              a(href='/login') Login
-            li
-              a(href='/signup') Create Account
-    .container-fluid.big-logo-row
-      .container
-        .row
-          .col-xs-12.big-logo-container
-            h1.big-logo
-              b BIG
-              span OUTSOURCE
+    ////////////////////SLIDER
+    .Modern-Slider
+      .item
+        .img-fill
+          img(src='https://i.vimeocdn.com/video/417043466_780x439.jpg')
+          .info
+            h3
+            h5
+      .item
+        .img-fill
+          img(src='https://i.vimeocdn.com/video/417282123_780x439.jpg')
+          .info
+            h3
+            h5
+    ///////////////////////
     .main-content
+
       block content
     
     footer
