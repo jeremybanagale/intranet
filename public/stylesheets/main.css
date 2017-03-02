@@ -13,9 +13,10 @@ $small-logo-padding: 2px; // of bottom padding to look nice
   ********************************** */
 .navbar{
   padding:10px;
+  
 }
 .navbar-inverse {
-  background: rgba(0, 42, 67,0);
+  background: rgba(0, 42, 67,0.5);
   border-bottom: none;
   padding:$navbar-paddingTop;
 }
