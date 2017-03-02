@@ -11,7 +11,9 @@ $small-logo-padding: 2px; // of bottom padding to look nice
 /* *********************************
    Some Style Overrides on Bootstrap
   ********************************** */
-
+.navbar{
+  padding:10px;
+}
 .navbar-inverse {
   background: rgba(0, 42, 67,0);
   border-bottom: none;
@@ -49,7 +51,7 @@ $small-logo-padding: 2px; // of bottom padding to look nice
   padding-top: $navbar-height;
   height: $navbar-height;
   overflow: hidden;
-  
+  opacity: 0;
 }
 
 .small-logo {
